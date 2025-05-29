@@ -20,6 +20,18 @@ const scene = new THREE.Scene()
 const textureLoader = new THREE.TextureLoader()
 
 /**
+ * Particles
+ */
+const particleGeometry = new THREE.SphereGeometry(1, 32, 32)
+const particleMaterial = new THREE.PointsMaterial({
+    size: 0.02,
+    sizeAttenuation:true
+})
+
+const particles = new THREE.Points(particleGeometry, particleMaterial)
+scene.add(particles)
+
+/**
  * Test cube
  */
 const cube = new THREE.Mesh(
