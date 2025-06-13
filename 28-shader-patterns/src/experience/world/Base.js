@@ -7,6 +7,9 @@ import Time from '../utils/Time'
 import vertexShader from '../../shaders/test/vertex.glsl';
 import fragmentShader from '../../shaders/test/fragment.glsl';
 
+// console.log(vertexShader)
+// console.log(fragmentShader)
+
 export default class Base 
 {
     constructor()
@@ -23,6 +26,7 @@ export default class Base
     }
 
     setGeometry(){
+    
         this.geometry = new THREE.PlaneGeometry(0.8, 0.8, 32, 32);
     }
 
@@ -35,8 +39,14 @@ export default class Base
             fragmentShader: fragmentShader,
             side: THREE.DoubleSide,
         });
+        // this.material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
         this.mesh = new THREE.Mesh(this.geometry, this.material);
         this.mesh.position.x = -2;
         this.scene.add(this.mesh);
+
+        // const axesHelper = new THREE.AxesHelper(2);
+        // this.scene.add(axesHelper);
     }
+    update() {}
+
 }
