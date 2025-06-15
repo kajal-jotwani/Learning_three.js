@@ -2,11 +2,10 @@ varying vec2 vUv;
 
 void main()
 {
-    // float strength = step(0.2, max(abs(vUv.x - 0.5), abs(vUv.y - 0.5)));
-    // strength *= 1.0 - step(0.25, max(abs(vUv.x - 0.5), abs(vUv.y - 0.5)));
-
-    float square1 = step(0.2, max(abs(vUv.x - 0.5), abs(vUv.y - 0.5)));
-    float square2 = 1.0 - step(0.25, max(abs(vUv.x - 0.5), abs(vUv.y - 0.5)));
-    float strength = square1 * square2;
+    vec2 lightUv = vec2(
+        vUv.x * 0.1 + 0.45,
+        vUv.y * 0.5 + 0.25
+    );
+    float strength = 0.015 / distance(lightUv, vec2(0.5));
     gl_FragColor = vec4(vec3(strength), 1.0); 
 }
